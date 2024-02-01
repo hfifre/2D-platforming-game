@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+#vs files
+./vs/*
+
+#building
+./x64/*
