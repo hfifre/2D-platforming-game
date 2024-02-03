@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
     sf::Texture texture;
     texture.loadFromFile("ressources/perso_standing_still.png");
 
-    sf::IntRect rectSourceSprite(0, 0, 320, 320);
+    sf::IntRect rectSourceSprite(0, 0, 240, 240);
     sf::Sprite sprite(texture, rectSourceSprite);
     sf::Clock clock;
     bool alreadyLeft = false;
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
             }
             if (clock.getElapsedTime().asMilliseconds() > 70.0f)
             {
-                spriteAnimation(960, 1280, 320, rectSourceSprite, sprite);
+                spriteAnimation(720, 960, 240, rectSourceSprite, sprite);
                 clock.restart();
             }
         }
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
             }
             if (clock.getElapsedTime().asMilliseconds() > 70.0f)
             {
-                spriteAnimation(960, 1280, 320, rectSourceSprite, sprite);
+                spriteAnimation(720, 960, 240, rectSourceSprite, sprite);
                 clock.restart();
             }
         }
@@ -88,7 +88,7 @@ int main(int argc, char** argv) {
             }
             if (clock.getElapsedTime().asMilliseconds() > 200.0f)
             {
-                spriteAnimation(640, 960, 320, rectSourceSprite, sprite);
+                spriteAnimation(480, 720, 240, rectSourceSprite, sprite);
                 clock.restart();
             }
         }
