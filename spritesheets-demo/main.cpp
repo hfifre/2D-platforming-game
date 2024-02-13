@@ -5,7 +5,8 @@ void spriteAnimation(
     int const& spriteSheetHeightSize,
     int const& unitSize,
     sf::IntRect &rectSourceSprite,
-    sf::Sprite &sprite)
+    sf::Sprite &sprite,
+    sf::Vector2i movePositions)
 {
     if (rectSourceSprite.left == spriteSheetWidthSize-unitSize)
     {
@@ -19,10 +20,11 @@ void spriteAnimation(
         rectSourceSprite.left += unitSize;
 
     sprite.setTextureRect(rectSourceSprite);
+    sprite.setPosition(sprite.getPosition().x + movePositions.x, sprite.getPosition().y + movePositions.y);
 }
 
 int main(int argc, char** argv) {
-    sf::RenderWindow renderWindow(sf::VideoMode(640, 480), "Demo Game");
+    sf::RenderWindow renderWindow(sf::VideoMode(1920, 1080), "Demo Game", sf::Style::Fullscreen);
 
     sf::Event event;
     sf::Texture texture;
@@ -54,7 +56,7 @@ int main(int argc, char** argv) {
             }
             if (clock.getElapsedTime().asMilliseconds() > 70.0f)
             {
-                spriteAnimation(720, 960, 240, rectSourceSprite, sprite);
+                spriteAnimation(720, 960, 240, rectSourceSprite, sprite, sf::Vector2i(30, 0));
                 clock.restart();
             }
         }
@@ -71,7 +73,7 @@ int main(int argc, char** argv) {
             }
             if (clock.getElapsedTime().asMilliseconds() > 70.0f)
             {
-                spriteAnimation(720, 960, 240, rectSourceSprite, sprite);
+                spriteAnimation(720, 960, 240, rectSourceSprite, sprite, sf::Vector2i(-30, 0));
                 clock.restart();
             }
         }
@@ -88,7 +90,7 @@ int main(int argc, char** argv) {
             }
             if (clock.getElapsedTime().asMilliseconds() > 200.0f)
             {
-                spriteAnimation(480, 720, 240, rectSourceSprite, sprite);
+                spriteAnimation(480, 720, 240, rectSourceSprite, sprite, sf::Vector2i(0, 0));
                 clock.restart();
             }
         }
